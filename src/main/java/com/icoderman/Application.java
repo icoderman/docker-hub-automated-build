@@ -18,6 +18,6 @@ public class Application {
 
     @GetMapping(value="/")
     public String hello() {
-        return "{\"message\":\"Hello world!\"}";
+        return "{\"message\":\"Hello world from Docker Hub!\"}";
     }
 }
