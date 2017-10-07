@@ -12,4 +12,6 @@ RUN mvn clean package
 
 EXPOSE 8080
 
+ADD . /target/docker-hub-automated-build-1.0-SNAPSHOT.jar
+
 CMD ["java", "-jar", "~/app/target/docker-hub-automated-build-1.0-SNAPSHOT.jar"]
