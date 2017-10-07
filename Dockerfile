@@ -5,11 +5,11 @@ RUN apk add maven --update-cache --repository http://dl-4.alpinelinux.org/alpine
 
 ENV MAVEN_HOME /usr/share/java/maven-3
 ENV PATH $PATH:$MAVEN_HOME/bin
-CMD ["mvn", "clean", "package"]
-RUN mkdir -p ~/app
-RUN ls -la
-ADD ./target/docker-hub-automated-build-1.0-SNAPSHOT.jar ~/app/
+ADD . /app
+WORKDIR /app
+
+RUN mvn clean package
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "~/app/docker-hub-automated-build-1.0-SNAPSHOT.jar"]
+CMD ["java", "-jar", "~/app/target/docker-hub-automated-build-1.0-SNAPSHOT.jar"]
